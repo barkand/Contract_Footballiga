@@ -1,0 +1,9 @@
+node_modules
+/migrations
+/build
+
+package-lock.json
+#
+.env
+.deps
+artifacts
