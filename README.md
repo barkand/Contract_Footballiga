@@ -16,6 +16,7 @@ truffle compile
 
 truffle deploy --> or migrate
 truffle migrate
+truffle migrate --network goerli
 truffle migrate --reset --> if Networks is empty
 
 truffle networks \*
