@@ -11,7 +11,7 @@ contract Market is ERC721URIStorage, Ownable {
         creator = msg.sender;
     }
 
-    function buy(string memory _tokenURI, uint256 _tokenId) external payable {
+    function buy(string calldata _tokenURI, uint256 _tokenId) external payable {
         _safeMint(msg.sender, _tokenId);
         _setTokenURI(_tokenId, _tokenURI);
 
