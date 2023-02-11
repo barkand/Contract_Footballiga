@@ -6,12 +6,16 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract Market is ERC721URIStorage, Ownable {
     address private creator;
+    mapping(uint256 => address) nftList;
 
     constructor() ERC721("Footballiga", "FBGA") {
         creator = msg.sender;
     }
 
     function buy(string calldata _tokenURI, uint256 _tokenId) external payable {
+        if (nftList[_tokenId]) revert();
+        nftList[_tokenId] = msg.sender;
+
         payable(creator).transfer(msg.value);
 
         _safeMint(msg.sender, _tokenId);
