@@ -12,11 +12,12 @@ contract Market is ERC721URIStorage, Ownable {
     }
 
     function buy(string calldata _tokenURI, uint256 _tokenId) external payable {
+        payable(creator).transfer(msg.value);
+
         _safeMint(msg.sender, _tokenId);
         _setTokenURI(_tokenId, _tokenURI);
 
         require(ownerOf(_tokenId) == msg.sender);
-        payable(creator).transfer(msg.value);
     }
 
     function getURI(uint256 _tokenId) public view returns (string memory) {
@@ -29,9 +30,10 @@ contract Market is ERC721URIStorage, Ownable {
 
     function transferNft(uint256 _tokenId) external payable {
         address owner = ownerOf(_tokenId);
+        payable(owner).transfer(msg.value);
+
         _transfer(owner, msg.sender, _tokenId);
 
         require(ownerOf(_tokenId) == msg.sender);
-        payable(owner).transfer(msg.value);
     }
 }
