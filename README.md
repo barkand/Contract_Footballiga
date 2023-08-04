@@ -1,22 +1,35 @@
-# Contract_Footballiga:
+# Footballiga Smart Contract:
 
-npm i -g truffle
-truffle init
+#### Init & Libraries:
 
-npm i @openzeppelin/contracts
+> npm i -g truffle
 
-ganache -a 3
+> truffle init
 
-truffle create contract contractName
-truffle create migration contractName
-truffle create test contractName
+> npm i @openzeppelin/contracts
 
-truffle test
-truffle compile
+#### Show 3 Ganache Address:
 
-truffle deploy --> or migrate
-truffle migrate
-truffle migrate --network goerli
-truffle migrate --reset --> if Networks is empty
+> ganache -a 3
 
-truffle networks \*
+#### Truffle Contract Tips:
+
+> truffle create contract contractName
+
+> truffle create migration contractName
+
+> truffle create test contractName
+
+> truffle test
+
+> truffle compile
+
+> truffle deploy --> or migrate
+
+> truffle migrate
+
+> truffle migrate --network goerli
+
+> truffle migrate --reset --> if Networks is empty
+
+> truffle networks \*
